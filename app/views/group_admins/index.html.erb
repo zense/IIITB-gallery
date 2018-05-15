@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_group_admin_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Group admin
+  <% end %>
+  <h1>Listing group_admins</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Group</th>
+            <th>User</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @group_admins) do |group_admin| %>
+            <td><%= group_admin.group %></td>
+            <td><%= group_admin.user %></td>
+            <td><%= link_to 'Show', group_admin %></td>
+        <td><%= link_to 'Edit', edit_group_admin_path(group_admin) %></td>
+        <td><%= link_to 'Destroy', group_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

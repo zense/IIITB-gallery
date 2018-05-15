@@ -1,0 +1,11 @@
+<%= form_tag({:action => :add_admin}, onsubmit:"before_submit()", id:"mailForm", method: :post, multipart: true) do %>
+
+
+
+        <p id="email_id">Emails: <%= text_field_tag :emails %></p>
+    
+        <div><%= submit_tag 'Add' ,class: "btn"%>
+
+
+
+<% end %>
