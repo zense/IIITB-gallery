@@ -1,0 +1,26 @@
+<h1><%=@event.group.name%></h1>
+<p><%=@event.group.description%></p>
+<h2><%=@event.name%></h2>
+<p><%=@event.description%></p>
+
+
+	<div id="links">
+		<% @event.photo_records.each do |photo_record| %>
+			<a href="<%=photo_record.photo.url%>" title="">
+				<img src="<%=photo_record.photo.thumb.url%>" alt="<%=@event.name%>">
+			</a>
+		<% end%>
+
+		<!-- <a href="/img/img2.JPG" title="Banana">
+			<img src="/img/img2.JPG" alt="Banana">
+		</a>
+		<a href="/img/img3.JPG" title="Banana">
+			<img src="/img/img3.JPG" alt="Banana">
+		</a>
+		<a href="/img/img4.JPG" title="Banana">
+			<img src="/img/img4.JPG" alt="Banana">
+		</a>
+		<a href="/img/img5.JPG" title="Banana">
+			<img src="/img/img5.JPG" alt="Banana">
+		 </a> -->
+	</div>
