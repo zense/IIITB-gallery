@@ -6,9 +6,7 @@
 
 	<div id="links">
 		<% @event.photo_records.each do |photo_record| %>
-			<a href="<%=photo_record.photo.url%>" title="">
-				<img src="<%=photo_record.photo.thumb.url%>" alt="<%=@event.name%>">
-			</a>
+			<a href="<%=photo_record.photo.url%>" ><img src="<%=photo_record.photo.thumb.url%>" class="remove-padding" alt="<%=@event.name%>"></a>
 		<% end%>
 
 		<!-- <a href="/img/img2.JPG" title="Banana">
