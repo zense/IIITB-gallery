@@ -34,8 +34,8 @@
 					<% if events.length == 1 %>
 						<a href="<%=gallery_event_path(events.first.id,events.first.name)%>"><%=group.name %></a>
 					<% elsif events.length >1%>
-						<a href="#<%= group.id %>Submenu" " data-toggle="collapse" aria-expanded="false"><%=group.name %></a>
-						<ul class="collapse list-unstyled" id="<%= group.id %>Submenu">
+						<a href="#<%= group.id %>Submenu" " data-toggle="collapse" aria-expanded="<%= @group == group ?'true': 'false'%>"><%=group.name %></a>
+						<ul class="collapse <%= @group == group ?'in': ''%> list-unstyled" id="<%= group.id %>Submenu">
 							<% events.all.each do |event| %>
 								<li><a href="<%=gallery_event_path(event.id,event.name)%>"><%=event.name %></a></li>
 							<% end %>
