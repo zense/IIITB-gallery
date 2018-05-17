@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @events = Event.where(group_id: @group.id)
   end
 
   # GET /groups/new

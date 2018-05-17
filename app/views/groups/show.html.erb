@@ -16,5 +16,13 @@
 
   <dt>Description:</dt>
   <dd><%= @group.description %></dd>
-
+  <a href ="<%= new_event_path(@group) %>"> Add Event </a>
+</br>
+<p> Events: </p>
+<dl>
+  <% @events.each do |e| %>
+    <a href ="<%= event_path(e) %>"><%= e.name %></a>
+    </br>
+  <% end %>
+</dl>
 </dl>

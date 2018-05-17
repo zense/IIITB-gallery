@@ -12,12 +12,14 @@
 
 <dl class="dl-horizontal">
   <dt>Group:</dt>
-  <dd><%= @event.group %></dd>
+  <dd><%= @event.group.name %></dd>
 
   <dt>Name:</dt>
   <dd><%= @event.name %></dd>
 
   <dt>Description:</dt>
   <dd><%= @event.description %></dd>
+
+  <a href ="<%= new_upload_path(@event) %>" > Upload photos </a>
 
 </dl>
