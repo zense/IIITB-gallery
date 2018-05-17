@@ -28,21 +28,30 @@
 
 			<ul class="list-unstyled components">
 				<!-- <p>Dummy Heading</p> -->
-				<% Group.all.each do |group| %>
 				<li>
-					<% events = group.events %>
-					<% if events.length == 1 %>
-						<a href="<%=gallery_event_path(events.first.id,events.first.name)%>"><%=group.name %></a>
-					<% elsif events.length >1%>
-						<a href="#<%= group.id %>Submenu" " data-toggle="collapse" aria-expanded="<%= @group == group ?'true': 'false'%>"><%=group.name %></a>
-						<ul class="collapse <%= @group == group ?'in': ''%> list-unstyled" id="<%= group.id %>Submenu">
-							<% events.all.each do |event| %>
-								<li><a href="<%=gallery_event_path(event.id,event.name)%>"><%=event.name %></a></li>
-							<% end %>
+						<a href="#2Submenu" " data-toggle="collapse" aria-expanded="true">ECE</a>
+						<ul class="collapse in list-unstyled" id="2Submenu">
+								<li><a href="/e/2/Zense%20Farewell">Zense Farewell</a></li>
+								<li><a href="/e/3/Hey">Hey</a></li>
+								<li><a href="/e/4/yolo">yolo</a></li>
+								<li><a href="/e/5/Ding">Ding</a></li>
 						</ul>
-					<% end %>
 				</li>
-				<% end %>
+				<li>
+				</li>
+				<li>
+				</li>
+				<li>
+						<a href="#5Submenu" " data-toggle="collapse" aria-expanded="false">Campus</a>
+						<ul class="collapse  list-unstyled" id="5Submenu">
+								<li><a href="/e/6/Hostel">Hostel</a></li>
+								<li><a href="/e/7/New%20Acad">New Acad</a></li>
+								<li><a href="/e/8/Old%20acad">Old acad</a></li>
+						</ul>
+				</li>
+				<li>
+						<a href="/e/9/Hacknight">Zense</a>
+				</li>
 
 				<!-- <li class="active">
 					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
@@ -98,7 +107,28 @@
 			</nav>
 
 
-			<%= yield %>
+			<h1>ECE</h1>
+<p></p>
+<h2>Ding</h2>
+<p></p>
+<br />
+
+	<div id="links">
+
+		<!-- <a href="/img/img2.JPG" title="Banana">
+			<img src="/img/img2.JPG" alt="Banana">
+		</a>
+		<a href="/img/img3.JPG" title="Banana">
+			<img src="/img/img3.JPG" alt="Banana">
+		</a>
+		<a href="/img/img4.JPG" title="Banana">
+			<img src="/img/img4.JPG" alt="Banana">
+		</a>
+		<a href="/img/img5.JPG" title="Banana">
+			<img src="/img/img5.JPG" alt="Banana">
+		 </a> -->
+	</div>
+
 
 			<!-- <h1>Infin8</h1>
 			<h2>Badminton</h2> -->
