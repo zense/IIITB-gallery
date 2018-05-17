@@ -6,7 +6,8 @@ class PhotoRecord < ApplicationRecord
   after_commit :clearCache
 
   def clearCache
-	  self.event.clearCache
+   ActionController::Base.expire_page(Rails.application.routes.url_helpers.gallery_event_path id:self.event.id,event_name: self.event.name)
+   ActionController::Base.expire_page(Rails.application.routes.url_helpers.gallery_path)
   end
 
 end
