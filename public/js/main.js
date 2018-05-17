@@ -33,7 +33,8 @@ $(function () {
 
     if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
-        $('#fileupload').fileupload('option', {
+        $('#fileupload').fileupload('option',
+		{
             url: '//jquery-file-upload.appspot.com/',
             // Enable image resizing, except for Android and Opera,
             // which actually support image resizing, but fail to
