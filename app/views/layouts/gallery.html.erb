@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>IIIT-Bangalore Gallery</title>
+	<title><%= yield(:title).presence || 'IIIT-Bangalore Gallery' %></title>
 	<link rel="stylesheet" href="/css/blueimp-gallery.min.css">
 	<!-- Bootstrap CSS CDN -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,7 +16,24 @@
 </head>
 
 <body>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
 
+	<!-- Modal content-->
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">IIIT-Bangalore Gallery by Zense</h4>
+	  </div>
+	  <div class="modal-body">
+		<p>Members in Zense have developed this Gallery to showcase the various events and activities within Campus by the various clubs, organisations and committees.</p>
+	  </div>
+
+	</div>
+
+	</div>
+	</div>
 
 
 	<div class="wrapper">
@@ -167,24 +184,7 @@
 		<a class="play-pause"></a>
 		<ol class="indicator"></ol>
 	</div>
-	<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">IIIT-Bangalore Gallery by Zense</h4>
-      </div>
-      <div class="modal-body">
-        <p>Members in Zense have developed this Gallery to showcase the various events and activities within Campus by the various clubs, organisations and committees.</p>
-      </div>
-
-    </div>
-
-  </div>
-</div>
 </body>
 
 </html>
