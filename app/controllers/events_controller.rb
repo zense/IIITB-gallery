@@ -16,8 +16,6 @@ class EventsController < ApplicationController
   end
 
   def add_upload
-	  puts "XXX"  , params["files"].length
-
 	  stored_files = {files: []}
 	  params["files"].each do |file|
 		  a = PhotoRecord.new(user_id:current_user.id,event_id:@event.id)
@@ -74,9 +72,10 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+	group_id = @event.group_id
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to group_path(group_id), notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
