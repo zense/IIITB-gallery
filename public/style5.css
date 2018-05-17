@@ -222,3 +222,8 @@ a.article, a.article:hover {
     }
 
 }
+
+.remove-padding{
+	 border:0;
+	 margin-right:-.25em;
+}
