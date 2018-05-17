@@ -6,8 +6,8 @@ class Group < ApplicationRecord
 		a = GroupAdmin.find_by(group_id: id,user_id: user.id)
 		if a!=nil or user.isSuperAdmin==true
 			return true
-		end
 		else
 			return false
+		end
 	end
 end
