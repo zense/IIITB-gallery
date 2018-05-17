@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 scope '/upload' do
-	resources :photo_records
+	resources :photo_records, only: [:destroy]
     resources :events, only: [:update, :edit, :show, :destroy]
-    resources :group_admins
+    resources :group_admins, only: [:destroy]
     # resources :group_admins
     resources :groups
     devise_for :users

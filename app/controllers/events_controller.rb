@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy, :add_upload,:new_upload]
+  before_action :check_access
 
   # GET /events
   # GET /events.json
@@ -23,12 +25,9 @@ class EventsController < ApplicationController
 		  a.save!
 		  # stored_files.files.push(file.name)
 	  end
-
-
 	  render json: stored_files
 
   end
-
 
   # GET /events/new
   def new
@@ -41,19 +40,19 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.json
-  def create
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @event = Event.new(event_params)
+  #
+  #   respond_to do |format|
+  #     if @event.save
+  #       format.html { redirect_to @event, notice: 'Event was successfully created.' }
+  #       format.json { render :show, status: :created, location: @event }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @event.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
@@ -88,6 +87,12 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:group_id, :name, :description)
+      params.require(:event).permit(:name, :description)
+    end
+
+	def check_access
+      if !@event.check_access(current_user)
+  		  render plain: "Access Restricted" and return
+  	  end
     end
 end

@@ -17,5 +17,7 @@
 /yarn-error.log
 /public/uploads/*
 /public/cached_pages/*
+/public/e/*
+/public/index.html
 
 .byebug_history

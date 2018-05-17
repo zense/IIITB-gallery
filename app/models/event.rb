@@ -9,4 +9,8 @@ class Event < ApplicationRecord
 	  ActionController::Base.expire_page(Rails.application.routes.url_helpers.gallery_path)
   end
 
+  def check_access(user)
+	  self.group.check_access(user)
+  end
+
 end

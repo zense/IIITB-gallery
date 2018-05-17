@@ -1,7 +1,9 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_access, only: [:create,:new]
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :add_admin, :new_admin, :add_event, :new_event]
+  before_action :set_group, except: [:index,:new,:create]
+  before_action :check_access, except: [:create,:new,:index]
+  before_action :check_super_access, only: [:create,:new, :destroy]
+
 
   # GET /groups
   # GET /groups.json
@@ -12,7 +14,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @events = Event.where(group_id: @group.id)
+    @events = @group.events
   end
 
   # GET /groups/new
@@ -102,19 +104,11 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    if @group.check_access(current_user)
-
       @group.destroy
       respond_to do |format|
         format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
         format.json { head :no_content }
       end
-    else
-      respond_to do |format|
-        format.html { redirect_to groups_url, notice: 'you dont have access.' }
-        format.json { head :no_content }
-      end
-    end
   end
 
   private
@@ -127,13 +121,18 @@ class GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(:name, :description)
     end
-    def check_access
+    def check_super_access
       if !current_user.isSuperAdmin
+  		  render plain: "Access Restricted" and return
+  	  end
+    end
+    def check_access
+      if !@group.check_access(current_user)
   		  render plain: "Access Restricted" and return
   	  end
     end
 
 	def event_params
-    params.require(:event).permit(:group_id, :name, :description)
+    	params.require(:event).permit(:group_id, :name, :description)
   end
 end

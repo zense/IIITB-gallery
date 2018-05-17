@@ -1,8 +1,11 @@
 <div class="page-header">
+ <% if current_user.isSuperAdmin %>
   <%= link_to new_group_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Group
   <% end %>
+ <% end %>
+
   <h1>Listing groups</h1>
 </div>
 
@@ -19,6 +22,7 @@
     </thead>
 
     <tbody>
+		<% if current_user.isSuperAdmin %>
       <%= content_tag_for(:tr, @groups) do |group| %>
             <td><%= group.name %></td>
             <td><%= group.description %></td>
@@ -26,6 +30,16 @@
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <!-- <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         <td><a href="<%= add_admin_path(group) %>" >Add Admin</a></td>
+      <% end %>
+      <% else %>
+		  <%= content_tag_for(:tr, current_user.groups) do |group| %>
+				<td><%= group.name %></td>
+				<td><%= group.description %></td>
+				<td><%= link_to 'Show', group %></td>
+			<td><%= link_to 'Edit', edit_group_path(group) %></td>
+			<!-- <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+			<td><a href="<%= add_admin_path(group) %>" >Add Admin</a></td>
+		  <% end %>
       <% end %>
     </tbody>
   </table>

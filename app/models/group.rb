@@ -1,13 +1,9 @@
 class Group < ApplicationRecord
 	has_many :events , dependent: :destroy
 	has_many :group_admins , dependent: :destroy
+	has_many :users , through: :group_admins
 
 	def check_access(user)
-		a = GroupAdmin.find_by(group_id: id,user_id: user.id)
-		if a!=nil or user.isSuperAdmin==true
-			return true
-		else
-			return false
-		end
+		user.isSuperAdmin or !GroupAdmin.find_by(group_id: id,user_id: user.id).nil?
 	end
 end

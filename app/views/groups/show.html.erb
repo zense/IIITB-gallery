@@ -16,6 +16,34 @@
 
   <dt>Description:</dt>
   <dd><%= @group.description %></dd>
+
+  <div class="page-header">
+    <%= link_to new_admin_path(@group), class: 'btn btn-primary' do %>
+  	<span class="glyphicon glyphicon-plus"></span>
+  	New Admin
+    <% end %>
+    <h3>Listing Admins</h3>
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+  	<tr>
+  		  <th>Email</th>
+  		  <th>Remove</th>
+  		  <!-- <th></th>
+  	  <th></th>
+  	  <th></th> -->
+  	</tr>
+    </thead>
+
+    <tbody>
+  	<%= content_tag_for(:tr, @group.group_admins) do |group_admin| %>
+  		  <td><%= group_admin.user.email %></td>
+		  <td><%= link_to 'Remove', group_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<% end %>
+    </tbody>
+  </table>
+
   <div class="page-header">
     <%= link_to new_event_path(@group), class: 'btn btn-primary' do %>
       <span class="glyphicon glyphicon-plus"></span>
@@ -23,7 +51,6 @@
     <% end %>
     <h3>Listing Albums</h3>
   </div>
-
 </br>
 
 
