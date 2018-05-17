@@ -1,4 +1,5 @@
 class GalleryController < ApplicationController
+	caches_page :index, :event
 	def index
 	end
 	def event
