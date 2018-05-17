@@ -1,12 +1,7 @@
-<h1>Recent Events</h1>
+<h1>Recent Albums</h1>
 <div class="container">
-
-
-
   <div class="row ">
-
 <% Event.order('id desc').limit(10).each do |event| %>
-	<%puts "XXX"%>
 	<% if !event.photo_records.first.nil? %>
 	 <div class="img-thumbnail text-center">
 	    <a href="<%=gallery_event_path(event.id,event.name)%>" class="">

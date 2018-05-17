@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/events/upload/:id' , to: 'events#new_upload', as: 'new_upload'
   post '/events/upload/:id' , to: 'events#add_upload', as: 'add_upload'
 
-  get '/', to: "gallery#index"
+  get '/', to: "gallery#index", as: 'gallery'
   get '/e/:id/:event_name', to: "gallery#event", as: 'gallery_event'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

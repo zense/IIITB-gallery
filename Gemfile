@@ -8,6 +8,8 @@ end
 #Bootstrap
 gem 'bootstrap-generators', '~> 3.3.4'
 
+#Caching
+gem "actionpack-page_caching"
 
 
 
