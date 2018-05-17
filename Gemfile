@@ -12,6 +12,9 @@ gem 'jquery-rails'
 #Caching
 gem "actionpack-page_caching"
 
+# SuperAdmin page
+gem 'rails_admin', '~> 1.2'
+gem 'cancancan', '~>2.0'
 
 
 #Auth

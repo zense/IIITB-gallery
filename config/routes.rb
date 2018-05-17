@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
 scope '/upload' do
 	resources :photo_records, only: [:destroy]
     resources :events, only: [:update, :edit, :show, :destroy]
