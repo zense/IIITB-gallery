@@ -25,6 +25,8 @@ class EventsController < ApplicationController
 		  a.save!
 		  # stored_files.files.push(file.name)
 	  end
+	  flash[:success] = 'Photos were successfully uploaded and are processing in the background. It might take a while for you to see it.'
+	  # format.html {  notice: 'Photos were successfully uploaded and are processing in the background. It might take a while for you to see it.' }
 	  render json: stored_files
 
   end

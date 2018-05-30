@@ -4,7 +4,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_limit: [2000, 2000] #, combine_options: {}
+  process resize_to_limit: [1500, 1500] #, combine_options: {}
 
   version :thumb do
     process resize_to_fill: [200,200]

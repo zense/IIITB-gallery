@@ -221,6 +221,10 @@ a.article, a.article:hover {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
+	.galleryView {
+		text-align: center;
+        /* background-color: lightblue; */
+    }
 }
 
 .remove-padding{
