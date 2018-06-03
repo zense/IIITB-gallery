@@ -19,5 +19,5 @@
 /public/cached_pages/*
 /public/e/*
 /public/index.html
-
+public/assets/
 .byebug_history
