@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  sqldb:
+    image: postgres:12.3-alpine
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=gallery-iiitb_development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres # change in prod
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - sqldb
+
+volumes:
+  postgres_data:
