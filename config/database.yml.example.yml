@@ -51,4 +51,4 @@ production:
   <<: *default
   database: gallery-iiitb_production
   username: gallery-iiitb
-  password: <%= ENV['GALLERY-IIITB_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SQLDB_1_ENV_POSTGRES_PASSWORD'] %>

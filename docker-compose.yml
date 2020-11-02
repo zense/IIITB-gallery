@@ -8,10 +8,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB=gallery-iiitb_development
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres # change in prod
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=gallery-iiitb_production
+      - POSTGRES_USER=gallery-iiitb
+      - POSTGRES_PASSWORD=${IIITBG_PG_PASS}
 
   web:
     build: .

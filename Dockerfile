@@ -6,7 +6,7 @@ RUN mkdir /IIITB-gallery
 WORKDIR /IIITB-gallery
 COPY Gemfile /IIITB-gallery/Gemfile
 COPY Gemfile.lock /IIITB-gallery/Gemfile.lock
-ENV RAILS_ENV='development'
+ENV RAILS_ENV='production'
 RUN bundle install --jobs 20 --retry 5 --without development test 
 
 COPY . /IIITB-gallery
