@@ -15,5 +15,8 @@ ENV RAILS_ROOT $(pwd)
 
 RUN cp config/database.yml.example.yml config/database.yml
 
-RUN rake db:migrate
-ENTRYPOINT bundle exec puma -C config/puma.rb
+#RUN rake db:migrate
+#ENTRYPOINT bundle exec puma -C config/puma.rb
+
+RUN chmod +x /IIITB-gallery/scripts/start.sh
+ENTRYPOINT /IIITB-gallery/scripts/start.sh

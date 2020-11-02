@@ -3,6 +3,7 @@ version: '3.5'
 services:
   sqldb:
     image: postgres:12.3-alpine
+    network_mode: bridge
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
@@ -10,14 +11,18 @@ services:
       - POSTGRES_DB=gallery-iiitb_development
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres # change in prod
+      - POSTGRES_HOST_AUTH_METHOD=trust
 
   web:
     build: .
+    network_mode: bridge
     restart: always
     ports:
       - "3000:3000"
     depends_on:
       - sqldb
+    links:
+      - sqldb:sqldb
 
 volumes:
   postgres_data:
